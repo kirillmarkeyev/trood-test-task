@@ -1,13 +1,15 @@
 # ProgressBar Component
 ProgressBar Input props:
 1. items - data array:
+```
 [
 {name: 'Sold', color: '#BD1FBE', value: 677},
 {name: 'Got free', color: '#FC64FF', value: 23},
 ...
 ]
-2. height - number, bar line height
-3. width - number, bar line width
+```
+1. height - number, bar line height
+2. width - number, bar line width
 Total is calculated by this data (as a sum of each value), and the bar line and its legend are built basing on fraction of value to total
 
 
