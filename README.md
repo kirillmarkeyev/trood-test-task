@@ -1,4 +1,5 @@
 # ProgressBar Component
+![ProgressBar Component](progress.jpg)
 ProgressBar Input props:
 1. items - data array:
 ```
