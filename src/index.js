@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const obj = {
+  items: [
+    { name: 'Sold', color: '#BD1FBE', value: 677 },
+    { name: 'Got free', color: '#FC64FF', value: 23 },
+    { name: 'Burned', color: '#00FF00', value: 202 },
+    { name: 'Free float', color: '#BBBBBB', value: 323 },
+  ],
+  height: 22,
+  width: 10,
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App data={obj} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

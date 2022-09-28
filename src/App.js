@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import _ from 'lodash';
 import './App.css';
 
-function App() {
+function App({ data }) {
+  const total = data.items.reduce((acc, item) => acc + item.value, 0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1>ProgressBar Component</h1>
+        <div className="container">
+          {data.items.map((item) => {
+            const percent = Math.round((item.value / total) * 100);
+            return [...Array(percent)].map((el) => (
+              <div className="element" key={_.uniqueId()} style={{
+                width: `${data.width}px`,
+                height: `${data.height}px`,
+                background: `${item.color}`,
+              }} />
+            ))
+          })}
+        </div>
+        <div className="legend">
+          {data.items.map((item) => (
+            <div className="legend-item" key={_.uniqueId()}>
+              <div className="circle" style={{ background: `${item.color}` }} />
+              <span>{item.name}: {item.value} ({((item.value / total) * 100).toFixed(1)} %)</span>
+            </div>
+          ))}
+        </div>
     </div>
   );
 }
